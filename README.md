@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +67,109 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+
+Find the Content Useful? [You can always buy me a coffey](https://www.buymecoffee.com/johnsmilga)
+
+#### Folder Structure
+
+- node_modules
+  Contains all dependencies required by the app. Main dependencies also listed in the package.json
+
+- public
+  Contains static assets including index.html(page template).
+  - index.html
+    - title
+    - fonts
+    - css
+    - favicon
+    - id="root" - our entire app
+- src
+  In simplest form it's the brain of our app. This is where we will do all of our work. src/index.js is the javaScript entry point.
+- .gitignore
+  Specifies which files source control (Git) should ignore
+
+- package.json
+  Every Node.js project has a package.json and it contains info about our project, for example list of dependencies and scripts 
+
+- package-lock.json
+  A snapshot of the entire dependencies tree   
+
+- README
+  The markdown file where you can share more info about the project for example build instruction and summary
+
+- zoom 175%
+
+  #### Remove Boilerplate
+
+- remove src folder
+- create src folder
+  - create index.js inside src
+- toggle sidebar CMD + B
+- shortcuts settings/keyboard shortcuts
+
+#### First Component
+
+```js
+function Greeting() {
+    return <h2>My First Component</h2>;
+}
+
+// arrow function also works
+
+const Greeting = () => {
+    return <h2>My First Component</h2>;
+};
+```
+
+- starts with capital letter
+- must return jsx (html)
+- always close tag <Greeting/>
+  
+##### Typical Component
+
+```js
+// imports or logic
+
+const Greeting = () => {
+    return <h2>my first component</h2>;
+};
+export default Greeting;
+```
+
+
+##### Root Component (only one) for my js entry point
+
+index.js
+
+```js 
+import React from 'react';
+import ReactDOM from 'react-down/client';
+
+function Greeting() {
+    return <h2>My First Component</h2>;
+}
+
+const root = ReactionDom.creatRoot(document.getElementByid('root'));
+
+root.render(<Greeting />);
+```
+
+#### Extension and settings.json
+
+- Auto Rename Tag
+- Highlight Matching Tag
+  - customize in settings.json
+- Prettier
+  - format on the save
+  - format on the paste
+  - default formatter (prittier - code formatter)
+
+settings.json
+
+```json
+"editor.formatOnPaster"; true,
+"editor.formatOnSave"; true,
+"editor.defaultFormatter"; "esbenp.prettier-version",
+  "prettier.singleQuote"; true,
+  "pretier.semi"; false,
