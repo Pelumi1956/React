@@ -167,9 +167,149 @@ root.render(<Greeting />);
 
 settings.json
 
-```json
+```json (this can search for them on the settings or add them directly on the json file)
 "editor.formatOnPaster"; true,
 "editor.formatOnSave"; true,
 "editor.defaultFormatter"; "esbenp.prettier-version",
   "prettier.singleQuote"; true,
   "pretier.semi"; false,
+  ```
+
+- Emmet
+
+settings.json
+
+```json
+"emmet.includeLanguages": {
+  "javascript": "javascriptreact"
+},
+```
+
+- ES7 Snippets
+  - rafce (arrow func with export)
+  - rfce (regular func with export )
+  - same as the file name
+  - react auto import
+    - uncheck
+    - React snippets > settings: import react on top
+
+
+#### First Component in Detail
+
+- capital letter
+- must return something
+- JSX syntax (return html)
+  - to make our lives easier
+  - calling function under the hood
+
+index.js
+
+```js
+const Greeting = () => {
+  return React.createElement('h2', {}, 'hello world');
+};
+```
+
+```js
+function Greeting() {
+  return (
+    <div>
+       <h2>hello world</h2>
+    </div>
+  );
+}
+
+const Greeting = () => {
+  return React.creatElement(
+    'div',
+    {},
+    React.createElement('h2', {}, 'hello world')
+  );
+};
+```
+
+#### JSX Rules
+
+- return single element
+  
+  - semantics section/article
+  - fragment - let's us group element without adding extra nodes
+
+```js
+return <React.Fragment>...rest of the return </React.Fragment>
+
+// shorthand
+
+return <>...rest on the return</>;
+```
+
+- camelCase property naming convention
+
+```js
+return (
+  <div tabaindex={1}>
+    <button onClick={myFunction}>Click me</button>
+    <label htmlFor='name'>Name</label>
+    <input readOnly={true} id='name' />
+  </div>
+)
+// in html
+<div tabindex="1">
+     <button onclick="myfunction()">Click me</button>
+     <label for='name'>Name</label>
+     <input raedonly id='name'>
+</div>
+```
+- className='' instead of class=""
+
+```js 
+return <div className='someValue'>hello</div>
+```
+
+- close every element
+
+```js
+return <img />;
+// or
+return <input />
+```
+
+- formating
+  - opening tag in the same line as return or ()
+
+```js
+function Greeting() {
+  return (
+    <div>
+       <div className='someValue'>
+         <h3>hello people</h3>
+         <ul>
+           <li>
+             <a href='#'>hello world</a>
+           </li>
+         </ul>
+       </div>
+    </div>
+  )
+}
+```
+
+#### Nest Components
+
+```js
+function Greeting() {
+  return (
+    <div>
+      <Person />
+      <Message />
+    </div>
+  );
+}
+
+const Person = () => <h2>john doe</h2>;
+const Message = () => {
+  return <p>this is my message</p>;
+};
+```
+
+#### React Developer
